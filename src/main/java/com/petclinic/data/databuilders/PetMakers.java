@@ -27,7 +27,7 @@ public class PetMakers {
     public static final Property<Pet, List<VisitResponse>> visits = newProperty();
 
     public static final Instantiator<Pet> DEFAULT_PET_INSTANTIATOR = lookup -> new Pet(
-            lookup.valueOf(id, 1),
+            lookup.valueOf(id, 0),
             lookup.valueOf(name, FAKER.name().firstName()),
             lookup.valueOf(birthDate, Utils.getTodayDate()),
             lookup.valueOf(type, PetService.getPetType(2)),
