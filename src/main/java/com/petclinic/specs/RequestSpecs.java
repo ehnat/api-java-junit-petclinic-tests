@@ -1,4 +1,4 @@
-package com.petclinic.services;
+package com.petclinic.specs;
 
 import com.petclinic.config.ConfigManager;
 import io.restassured.builder.RequestSpecBuilder;
@@ -29,11 +29,11 @@ public class RequestSpecs {
     private RequestSpecs() {
     }
 
-    static RequestSpecification basicSpec() {
+    public static RequestSpecification basicSpec() {
         return basicSpec(APPLICATION_JSON);
     }
 
-    static RequestSpecification basicSpec(String accept) {
+    public static RequestSpecification basicSpec(String accept) {
         return new RequestSpecBuilder()
                 .setBaseUri(ConfigManager.getEnvConfig().baseUrl())
                 .setConfig(newConfig().httpClient(HTTP_CLIENT_CONFIG))

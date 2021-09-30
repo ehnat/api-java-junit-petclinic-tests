@@ -1,4 +1,4 @@
-package com.petclinic.dto;
+package com.petclinic.data.dto;
 
 import java.util.List;
 

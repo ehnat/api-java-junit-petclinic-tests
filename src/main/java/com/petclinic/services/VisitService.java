@@ -1,6 +1,7 @@
 package com.petclinic.services;
 
-import com.petclinic.dto.Visit;
+import com.petclinic.data.dto.Visit;
+import com.petclinic.specs.RequestSpecs;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class VisitService {
 
-    static List<Visit> getAllVisits() {
+    public static List<Visit> getAllVisits() {
         return List.of(given()
                 .spec(RequestSpecs.basicSpec())
                 .when()
@@ -20,7 +21,7 @@ public class VisitService {
                 .extract().as(Visit[].class));
     }
 
-    static Visit getVisit(int visitId) {
+    public static Visit getVisit(int visitId) {
         return given()
                 .spec(RequestSpecs.basicSpec())
                 .pathParam("visitId", visitId)
@@ -31,7 +32,7 @@ public class VisitService {
                 .extract().response().as(Visit.class);
     }
 
-    static Visit addVisit(Visit requestBody) {
+    public static Visit addVisit(Visit requestBody) {
         return given()
                 .spec(RequestSpecs.basicSpec())
                 .body(requestBody)

@@ -1,4 +1,4 @@
-package com.petclinic.dto;
+package com.petclinic.data.dto;
 
 public record PetType(int id, String name) {
 }

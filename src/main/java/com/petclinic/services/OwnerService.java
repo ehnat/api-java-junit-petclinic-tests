@@ -1,6 +1,7 @@
 package com.petclinic.services;
 
-import com.petclinic.dto.Owner;
+import com.petclinic.data.dto.Owner;
+import com.petclinic.specs.RequestSpecs;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +12,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class OwnerService {
 
-    static List<Owner> getAllOwners() {
+    public static List<Owner> getAllOwners() {
         return Arrays.asList(given()
                 .spec(RequestSpecs.basicSpec())
                 .when()
@@ -21,7 +22,7 @@ public class OwnerService {
                 .extract().as(Owner[].class));
     }
 
-    static Owner getOwner(int ownerId) {
+    public static Owner getOwner(int ownerId) {
         return given()
                 .spec(RequestSpecs.basicSpec())
                 .pathParam("ownerId", ownerId)
@@ -32,7 +33,7 @@ public class OwnerService {
                 .extract().response().as(Owner.class);
     }
 
-    static Owner addOwner(Owner requestBody) {
+    public static Owner addOwner(Owner requestBody) {
         return given()
                 .spec(RequestSpecs.basicSpec())
                 .body(requestBody)

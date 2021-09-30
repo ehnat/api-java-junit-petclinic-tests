@@ -1,6 +1,7 @@
 package com.petclinic.services;
 
-import com.petclinic.dto.Vet;
+import com.petclinic.data.dto.Vet;
+import com.petclinic.specs.RequestSpecs;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class VetService {
 
-    static List<Vet> getAllVets() {
+    public static List<Vet> getAllVets() {
         return Arrays.asList(given()
                 .spec(RequestSpecs.basicSpec())
                 .when()
@@ -20,7 +21,7 @@ public class VetService {
                 .extract().as(Vet[].class));
     }
 
-    static Vet getVet(int vetId) {
+    public static Vet getVet(int vetId) {
         return given()
                 .spec(RequestSpecs.basicSpec())
                 .pathParam("vetId", vetId)
