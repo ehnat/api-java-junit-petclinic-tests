@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Visits:")
-public class VisitsTest {
+public class VisitTest {
 
     private static final int INITIAL_VISITS_AMOUNT = 4;
 
@@ -30,8 +30,8 @@ public class VisitsTest {
 
         //then
         assertAll("visits:",
-                () -> assertTrue(allVisits.size() > 0, () -> "visits amount is greater than 0"),
-                () -> assertTrue(allVisits.size() >= INITIAL_VISITS_AMOUNT, () -> "visits amount >= 4 (initial value)")
+                () -> assertTrue(allVisits.size() > 0, "visits amount is greater than 0"),
+                () -> assertTrue(allVisits.size() >= INITIAL_VISITS_AMOUNT, "visits amount >= 4 (initial value)")
         );
     }
 
@@ -64,9 +64,9 @@ public class VisitsTest {
 
         //then
         assertAll("added visit:",
-                () -> assertTrue(addedVisit.id() > INITIAL_VISITS_AMOUNT, () -> "id > 4"),
-                () -> assertEquals(visitRequest.description(), addedVisit.description(), () -> "description = visit added in test"),
-                () -> assertTrue(VisitService.getAllVisits().size() >= INITIAL_VISITS_AMOUNT + 1, () -> "visits amount >= 5")
+                () -> assertTrue(addedVisit.id() > INITIAL_VISITS_AMOUNT, "id > 4"),
+                () -> assertEquals(visitRequest.description(), addedVisit.description(), "description = visit added in test"),
+                () -> assertTrue(VisitService.getAllVisits().size() >= INITIAL_VISITS_AMOUNT + 1, "visits amount >= 5")
         );
     }
 }

@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Owners:")
-class OwnersTest {
+class OwnerTest {
 
     private static final int INITIAL_OWNERS_AMOUNT = 10;
 
@@ -31,8 +31,8 @@ class OwnersTest {
 
         //then
         assertAll("owners",
-                () -> assertTrue(allOwners.size() > 0, () -> "owners amount is greater than 0"),
-                () -> assertTrue(allOwners.size() >= INITIAL_OWNERS_AMOUNT, () -> "owners amount >= 10 (initial value)")
+                () -> assertTrue(allOwners.size() > 0, "owners amount is greater than 0"),
+                () -> assertTrue(allOwners.size() >= INITIAL_OWNERS_AMOUNT, "owners amount >= 10 (initial value)")
         );
     }
 
@@ -69,9 +69,9 @@ class OwnersTest {
 
         //then
         assertAll("added owner:",
-                () -> assertTrue(addedOwner.id() > INITIAL_OWNERS_AMOUNT, () -> "id > 10"),
-                () -> assertEquals(ownerRequest.firstName(), addedOwner.firstName(), () -> "first name = Max"),
-                () -> assertTrue(OwnerService.getAllOwners().size() >= INITIAL_OWNERS_AMOUNT + 1, () -> "owners amount >= 11")
+                () -> assertTrue(addedOwner.id() > INITIAL_OWNERS_AMOUNT, "id > 10"),
+                () -> assertEquals(ownerRequest.firstName(), addedOwner.firstName(), "first name = Max"),
+                () -> assertTrue(OwnerService.getAllOwners().size() >= INITIAL_OWNERS_AMOUNT + 1, "owners amount >= 11")
         );
     }
 }

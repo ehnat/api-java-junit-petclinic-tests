@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 @DisplayName("PetTypes:")
-public class PetTypesTest {
+public class PetTypeTest {
 
     @SmokeParameterizedTest
     @MethodSource("getPetTypesDetails")

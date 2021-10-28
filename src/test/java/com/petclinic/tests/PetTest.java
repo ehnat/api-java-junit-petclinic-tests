@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Pets:")
-public class PetsTest {
+public class PetTest {
 
     private static final int INITIAL_PETS_AMOUNT = 13;
 
@@ -25,8 +25,8 @@ public class PetsTest {
 
         //then
         assertAll("pets",
-                () -> assertTrue(allPets.size() > 0, () -> "pets amount is greater than 0"),
-                () -> assertTrue(allPets.size() >= INITIAL_PETS_AMOUNT, () -> "pets amount >= 13 (initial value)")
+                () -> assertTrue(allPets.size() > 0, "pets amount is greater than 0"),
+                () -> assertTrue(allPets.size() >= INITIAL_PETS_AMOUNT, "pets amount >= 13 (initial value)")
         );
     }
 
@@ -44,9 +44,9 @@ public class PetsTest {
 
         //then
         assertAll("added pet:",
-                () -> assertTrue(addedPet.id() > INITIAL_PETS_AMOUNT, () -> "id > 13"),
-                () -> assertEquals(petRequest.name(), addedPet.name(), () -> "name is correct"),
-                () -> assertTrue(PetService.getAllPets().size() >= INITIAL_PETS_AMOUNT + 1, () -> "pets amount >= 14")
+                () -> assertTrue(addedPet.id() > INITIAL_PETS_AMOUNT, "id > 13"),
+                () -> assertEquals(petRequest.name(), addedPet.name(), "name is correct"),
+                () -> assertTrue(PetService.getAllPets().size() >= INITIAL_PETS_AMOUNT + 1, "pets amount >= 14")
         );
     }
 }

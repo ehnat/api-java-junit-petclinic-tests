@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Vets:")
-public class VetsTest {
+public class VetTest {
 
     private static final int INITIAL_VETS_AMOUNT = 6;
 
@@ -26,8 +26,8 @@ public class VetsTest {
 
         //then
         assertAll("vets:",
-                () -> assertTrue(allVets.size() > 0, () -> "vets amount is greater than 0"),
-                () -> assertEquals(INITIAL_VETS_AMOUNT, allVets.size(), () -> "vets amount = 6 (initial value)")
+                () -> assertTrue(allVets.size() > 0, "vets amount is greater than 0"),
+                () -> assertEquals(INITIAL_VETS_AMOUNT, allVets.size(), "vets amount = 6 (initial value)")
         );
     }
 
