@@ -15,7 +15,7 @@ public class PetService {
 
     public static PetType getPetType(int petTypeId) {
         return given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithoutTrafficLogging())
                 .pathParam("petTypeId", petTypeId)
                 .when()
                 .get(Paths.PET_TYPE)
@@ -26,7 +26,7 @@ public class PetService {
 
     public static List<Pet> getAllPets() {
         return Arrays.asList(given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .when()
                 .get(Paths.PETS)
                 .then()
@@ -36,7 +36,7 @@ public class PetService {
 
     public static Pet getPet(int petId) {
         return given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .pathParam("id", petId)
                 .when()
                 .get(Paths.PET)
@@ -47,7 +47,7 @@ public class PetService {
 
     public static Pet addPet(Pet requestBody) {
         return given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .body(requestBody)
                 .when()
                 .post(Paths.PETS)

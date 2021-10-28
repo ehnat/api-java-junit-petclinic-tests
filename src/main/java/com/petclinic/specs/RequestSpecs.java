@@ -9,6 +9,7 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.config.HttpClientConfig.httpClientConfig;
@@ -29,17 +30,25 @@ public class RequestSpecs {
     private RequestSpecs() {
     }
 
-    public static RequestSpecification basicSpec() {
-        return basicSpec(APPLICATION_JSON);
+    public static RequestSpecification basicSpecWithTrafficLogging() {
+        return basicSpec(true);
     }
 
-    public static RequestSpecification basicSpec(String accept) {
+    public static RequestSpecification basicSpecWithoutTrafficLogging() {
+        return basicSpec(false);
+    }
+
+    public static RequestSpecification basicSpec(String accept, boolean trafficLoggingEnabled) {
         return new RequestSpecBuilder()
                 .setBaseUri(ConfigManager.getEnvConfig().baseUrl())
                 .setConfig(newConfig().httpClient(HTTP_CLIENT_CONFIG))
-                .addFilters(LOGGING_FILTERS)
+                .addFilters(trafficLoggingEnabled ? LOGGING_FILTERS : new ArrayList<Filter>())
                 .setAccept(accept)
                 .setContentType(ContentType.JSON)
                 .build();
+    }
+
+    private static RequestSpecification basicSpec(boolean trafficLoggingEnabled) {
+        return basicSpec(APPLICATION_JSON, trafficLoggingEnabled);
     }
 }

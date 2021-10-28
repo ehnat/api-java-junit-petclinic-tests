@@ -1,10 +1,14 @@
 package com.petclinic.tests;
 
 import com.petclinic.data.databuilders.OwnerMakers;
+import com.petclinic.data.dto.Owner;
 import com.petclinic.services.OwnerService;
 import com.petclinic.tests.tags.RegressionTest;
+import com.petclinic.tests.tags.SmokeParameterizedTest;
 import com.petclinic.tests.tags.SmokeTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.natpryce.makeiteasy.MakeItEasy.an;
 import static com.natpryce.makeiteasy.MakeItEasy.make;
@@ -29,6 +33,24 @@ class OwnersTest {
         assertAll("owners",
                 () -> assertTrue(allOwners.size() > 0, () -> "owners amount is greater than 0"),
                 () -> assertTrue(allOwners.size() >= INITIAL_OWNERS_AMOUNT, () -> "owners amount >= 10 (initial value)")
+        );
+    }
+
+    @SmokeParameterizedTest
+    @DisplayName("should get an owner:")
+    @ParameterizedTest(name = "id and first name: {arguments}")
+    @CsvSource(textBlock = """
+                    1, George
+                    3, Eduardo
+            """)
+    void shouldGetOwner(int ownerId, String firstName) {
+        //when
+        Owner owner = OwnerService.getOwner(ownerId);
+
+        //then
+        assertAll("get an owner:",
+                () -> assertEquals(ownerId, owner.id(), () -> String.format("id is correct: %s", ownerId)),
+                () -> assertEquals(firstName, owner.firstName(), () -> String.format("firstName is correct: %s", firstName))
         );
     }
 

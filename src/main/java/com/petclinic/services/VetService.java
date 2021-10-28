@@ -13,7 +13,7 @@ public class VetService {
 
     public static List<Vet> getAllVets() {
         return Arrays.asList(given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .when()
                 .get(Paths.VETS)
                 .then()
@@ -23,7 +23,7 @@ public class VetService {
 
     public static Vet getVet(int vetId) {
         return given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .pathParam("vetId", vetId)
                 .when()
                 .get(Paths.VET)

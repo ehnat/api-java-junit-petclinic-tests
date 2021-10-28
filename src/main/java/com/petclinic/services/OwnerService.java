@@ -14,7 +14,7 @@ public class OwnerService {
 
     public static List<Owner> getAllOwners() {
         return Arrays.asList(given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .when()
                 .get(Paths.OWNERS)
                 .then()
@@ -24,7 +24,7 @@ public class OwnerService {
 
     public static Owner getOwner(int ownerId) {
         return given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .pathParam("ownerId", ownerId)
                 .when()
                 .get(Paths.OWNER)
@@ -35,7 +35,7 @@ public class OwnerService {
 
     public static Owner addOwner(Owner requestBody) {
         return given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .body(requestBody)
                 .when()
                 .post(Paths.OWNERS)

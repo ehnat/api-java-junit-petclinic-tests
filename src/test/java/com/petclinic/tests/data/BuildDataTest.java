@@ -1,4 +1,4 @@
-package com.petclinic.tests;
+package com.petclinic.tests.data;
 
 import com.petclinic.data.databuilders.OwnerMakers;
 import com.petclinic.data.databuilders.PetMakers;

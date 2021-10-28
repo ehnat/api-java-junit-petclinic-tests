@@ -13,7 +13,7 @@ public class VisitService {
 
     public static List<Visit> getAllVisits() {
         return List.of(given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .when()
                 .get(Paths.VISITS)
                 .then()
@@ -23,7 +23,7 @@ public class VisitService {
 
     public static Visit getVisit(int visitId) {
         return given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .pathParam("visitId", visitId)
                 .when()
                 .get(Paths.VISIT)
@@ -34,7 +34,7 @@ public class VisitService {
 
     public static Visit addVisit(Visit requestBody) {
         return given()
-                .spec(RequestSpecs.basicSpec())
+                .spec(RequestSpecs.basicSpecWithTrafficLogging())
                 .body(requestBody)
                 .when()
                 .post(Paths.VISITS)
