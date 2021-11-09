@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Pets:")
-public class PetTest {
+public class PetTest extends BaseTest {
 
     private static final int INITIAL_PETS_AMOUNT = 13;
 

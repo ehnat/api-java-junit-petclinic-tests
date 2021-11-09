@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Visits:")
-public class VisitTest {
+public class VisitTest extends BaseTest {
 
     private static final int INITIAL_VISITS_AMOUNT = 4;
 

@@ -6,6 +6,7 @@ import com.petclinic.tests.tags.RegressionTest;
 import com.petclinic.tests.tags.SmokeParameterizedTest;
 import com.petclinic.tests.tags.SmokeTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Vets:")
-public class VetTest {
+public class VetTest extends BaseTest {
 
     private static final int INITIAL_VETS_AMOUNT = 6;
 
@@ -33,6 +34,7 @@ public class VetTest {
 
     @SmokeParameterizedTest
     @MethodSource("com.petclinic.tests.DataProvider#getVetDetails")
+    @ParameterizedTest(name = "id and first name: {arguments}")
     @DisplayName("should get a vet:")
     void shouldGetVet(int vetId, String firstName) {
         //when

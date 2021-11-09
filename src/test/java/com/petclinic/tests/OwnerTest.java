@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Owners:")
-class OwnerTest {
+class OwnerTest extends BaseTest {
 
     private static final int INITIAL_OWNERS_AMOUNT = 10;
 
