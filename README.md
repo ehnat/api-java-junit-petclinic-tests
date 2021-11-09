@@ -17,3 +17,6 @@
 - Owner: [article](http://www.eliasnogueira.com/easily-manage-properties-files-in-java-with-owner)
 - Make-It-Easy: [article1](http://www.natpryce.com/articles/000769.html), [article2](https://softwareskill.pl/test-data-builder-java)
 
+### Allure
+gradlew allureReport
+gradlew allureServe
