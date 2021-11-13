@@ -6,6 +6,7 @@ import com.petclinic.services.OwnerService;
 import com.petclinic.tests.tags.RegressionTest;
 import com.petclinic.tests.tags.SmokeParameterizedTest;
 import com.petclinic.tests.tags.SmokeTest;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -25,6 +26,7 @@ class OwnerTest extends BaseTest {
 
     @SmokeTest
     @DisplayName("should return all owners")
+    @Description("should return all owners")
     void shouldReturnAllOwners() {
         //when
         var allOwners = OwnerService.getAllOwners();
@@ -38,6 +40,7 @@ class OwnerTest extends BaseTest {
 
     @SmokeParameterizedTest
     @DisplayName("should get an owner:")
+    @Description("should get an owner:")
     @ParameterizedTest(name = "id and first name: {arguments}")
     @CsvSource(textBlock = """
                     1, George
@@ -56,6 +59,7 @@ class OwnerTest extends BaseTest {
 
     @RegressionTest
     @DisplayName("should add a new owner")
+    @Description("should add a new owner")
     void shouldAddOwner() {
         //given
         var ownerRequest = make(

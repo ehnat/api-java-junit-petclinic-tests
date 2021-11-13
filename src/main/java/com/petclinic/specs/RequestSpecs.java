@@ -1,6 +1,7 @@
 package com.petclinic.specs;
 
 import com.petclinic.config.ConfigManager;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.filter.Filter;
@@ -23,7 +24,7 @@ public class RequestSpecs {
     private static final int DEFAULT_CONNECTION_TIMEOUT_IN_MILLIS = 10_000;
     private static final int DEFAULT_SOCKET_TIMEOUT_IN_MILLIS = 10_000;
 
-    private static final List<Filter> LOGGING_FILTERS = List.of(new RequestLoggingFilter(), new ResponseLoggingFilter());
+    private static final List<Filter> LOGGING_FILTERS = List.of(new RequestLoggingFilter(), new ResponseLoggingFilter(), new AllureRestAssured());
     private static final HttpClientConfig HTTP_CLIENT_CONFIG = httpClientConfig().setParam(CONNECTION_TIMEOUT, DEFAULT_CONNECTION_TIMEOUT_IN_MILLIS)
             .setParam(SO_TIMEOUT, DEFAULT_SOCKET_TIMEOUT_IN_MILLIS);
 
