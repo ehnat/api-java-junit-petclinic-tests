@@ -10,7 +10,7 @@
 - [JUnit 5](https://junit.org/junit5/docs/current/user-guide/) - support the test creation
 - [Owner](http://owner.aeonbits.org/docs/usage/) - manage property files
 - [Java-Faker](https://github.com/DiUS/java-faker), [Make-It-Easy](https://github.com/npryce/make-it-easy) - prepare test data
-- [Allure](http://allure.qatools.ru/), [docs](https://docs.qameta.io/allure/) - test reports
+- [Allure](https://github.com/allure-framework): [webpage](http://allure.qatools.ru/), [docs](https://docs.qameta.io/allure/) - test reports
 
 ### Helpful links
 
@@ -19,7 +19,7 @@
 
 ### Allure reports
 1. Helpful parts in allure docs: [gradle](https://docs.qameta.io/allure/#_gradle_5)
-2. [Integration](https://volkanozdamar.com/Integrate-Rest-Assured-and-Allure/) Allure with Restassured -> see requests and responses in allure report
+2. [Integration](https://volkanozdamar.com/Integrate-Rest-Assured-and-Allure/) Allure with RestAssured -> see requests and responses in allure report
 3. Example of project with allure, JUnit5, Gradle: [example1](https://github.com/allure-examples/allure-junit5-gradle) , [example2](https://github.com/allure-examples/allure-examples/tree/master/allure-junit5)
 
 * `./gradlew clean test allureServe --info` - run tests and automatically open report on the website
