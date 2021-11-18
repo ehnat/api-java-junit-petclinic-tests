@@ -2,7 +2,6 @@ package com.petclinic.tests;
 
 import com.petclinic.data.databuilders.PetMakers;
 import com.petclinic.services.PetService;
-import com.petclinic.tests.tags.RegressionTest;
 import com.petclinic.tests.tags.SmokeTest;
 import org.junit.jupiter.api.DisplayName;
 
@@ -30,7 +29,6 @@ public class PetTest extends BaseTest {
         );
     }
 
-    @RegressionTest
     @DisplayName("should add a new pet")
     void shouldAddPet() {
         //given

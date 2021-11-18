@@ -39,7 +39,26 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    systemProperties System.properties
+
+    def DEFAULT_ENVIRONMENT = 'env1'
+    def DEFAULT_CATEGORY = 'smoke'
+
+    def ENVIRONMENT_PROPERTY_NAME = 'env'
+    def CATEGORY_PROPERTY_NAME = 'testsCategory'
+
+    def chosenEnvironment = System.getProperty(ENVIRONMENT_PROPERTY_NAME) ?: DEFAULT_ENVIRONMENT
+    systemProperty ENVIRONMENT_PROPERTY_NAME, chosenEnvironment
+
+    def chosenTestCategory = System.getProperty(CATEGORY_PROPERTY_NAME) ?: DEFAULT_CATEGORY
+    systemProperty CATEGORY_PROPERTY_NAME, chosenTestCategory
+
+    println "Chosen test env: '$chosenEnvironment' and tests category: '$chosenTestCategory'"
+
+    useJUnitPlatform {
+        includeTags chosenTestCategory
+    }
+
     testLogging {
         events "passed", "skipped", "failed"
     }

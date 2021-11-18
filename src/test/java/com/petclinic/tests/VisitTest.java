@@ -3,7 +3,6 @@ package com.petclinic.tests;
 import com.petclinic.data.databuilders.VisitMakers;
 import com.petclinic.data.dto.Visit;
 import com.petclinic.services.VisitService;
-import com.petclinic.tests.tags.RegressionTest;
 import com.petclinic.tests.tags.SmokeParameterizedTest;
 import com.petclinic.tests.tags.SmokeTest;
 import org.junit.jupiter.api.DisplayName;
@@ -22,7 +21,6 @@ public class VisitTest extends BaseTest {
     private static final int INITIAL_VISITS_AMOUNT = 4;
 
     @SmokeTest
-    @RegressionTest
     @DisplayName("should return all visits")
     void shouldReturnAllVets() {
         //when
@@ -49,7 +47,6 @@ public class VisitTest extends BaseTest {
         );
     }
 
-    @RegressionTest
     @DisplayName("should add a new visit")
     void shouldAddVisit() {
         //given

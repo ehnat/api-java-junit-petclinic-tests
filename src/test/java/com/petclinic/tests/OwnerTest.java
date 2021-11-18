@@ -3,7 +3,6 @@ package com.petclinic.tests;
 import com.petclinic.data.databuilders.OwnerMakers;
 import com.petclinic.data.dto.Owner;
 import com.petclinic.services.OwnerService;
-import com.petclinic.tests.tags.RegressionTest;
 import com.petclinic.tests.tags.SmokeParameterizedTest;
 import com.petclinic.tests.tags.SmokeTest;
 import io.qameta.allure.Description;
@@ -57,7 +56,6 @@ class OwnerTest extends BaseTest {
         );
     }
 
-    @RegressionTest
     @DisplayName("should add a new owner")
     @Description("should add a new owner")
     void shouldAddOwner() {

@@ -8,8 +8,7 @@ import org.aeonbits.owner.Config.Sources;
 @LoadPolicy(LoadType.MERGE)
 @Sources({
         "system:properties",
-//        "classpath:env/${env}.properties"
-        "classpath:env/default-regression.properties"
+        "classpath:env/${env}.properties"
 })
 public interface EnvConfig extends Config {
 

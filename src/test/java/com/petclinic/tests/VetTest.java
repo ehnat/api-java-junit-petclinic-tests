@@ -2,7 +2,6 @@ package com.petclinic.tests;
 
 import com.petclinic.data.dto.Vet;
 import com.petclinic.services.VetService;
-import com.petclinic.tests.tags.RegressionTest;
 import com.petclinic.tests.tags.SmokeParameterizedTest;
 import com.petclinic.tests.tags.SmokeTest;
 import org.junit.jupiter.api.DisplayName;
@@ -18,7 +17,6 @@ public class VetTest extends BaseTest {
 
     private static final int INITIAL_VETS_AMOUNT = 6;
 
-    @RegressionTest
     @SmokeTest
     @DisplayName("should return all vets")
     void shouldReturnAllVets() {
