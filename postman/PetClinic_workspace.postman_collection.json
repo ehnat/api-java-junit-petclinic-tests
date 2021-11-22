@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "a973823c-f537-4ab2-bb34-6b1db20eee7f",
+		"name": "PetClinic_workspace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "VET - get all vets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var vetsAmount = jsonData.length;\r",
+							"\r",
+							"tests[\"Vets amount = \"  + vetsAmount] = pm.expect(vetsAmount).to.greaterThan(0);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"vetsAmount\", vetsAmount);\r",
+							"console.log(\"Vets amount = \"  + vetsAmount);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/vets",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PET TYPE - get all pet types",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var petTypesAmount = jsonData.length;\r",
+							"\r",
+							"tests[\"Pet types amount = \"  + petTypesAmount] = pm.expect(petTypesAmount).to.greaterThan(0);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"petTypesAmount\", petTypesAmount);\r",
+							"console.log(\"Pet types amount = \"  + petTypesAmount);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/pettypes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pettypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PET - get all pets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var petsAmount = jsonData.length;\r",
+							"\r",
+							"tests[\"Pets amount = \"  + petsAmount] = pm.expect(petsAmount).to.greaterThan(0);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"petsAmount\", petsAmount);\r",
+							"console.log(\"Pets amount = \"  + petsAmount);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/pets",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PET - add pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var addedPetId = jsonData.id;\r",
+							"\r",
+							"tests[\"Added pet id = \"  + addedPetId] = pm.expect(addedPetId).not.null;\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"addedPetId\", addedPetId);\r",
+							"console.log(\"Added pet id = \"  + addedPetId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"birthDate\": \"2021/03/08\",\r\n\"name\": \"Brutus\",\r\n\"id\": null,\r\n\"type\": {\r\n    \"id\": 2,\r\n    \"name\": \"dog\"\r\n  },\r\n\"owner\": {\r\n            \"id\": 10,\r\n            \"firstName\": \"Carlos\",\r\n            \"lastName\": \"Estaban\",\r\n            \"address\": \"2335 Independence La.\",\r\n            \"city\": \"Waunakee\",\r\n            \"telephone\": \"6085555487\"\r\n        },\r\n\"visits\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/pets",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VET - get vet by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var vetId = jsonData.id;\r",
+							"\r",
+							"tests[\"Vet id = \"  + vetId] = pm.expect(vetId).to.eql(1);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"vetId\", vetId);\r",
+							"console.log(\"Vet id = \"  + vetId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/vets/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OWNER - add owner",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var addedOwnerId = jsonData.id;\r",
+							"\r",
+							"tests[\"Added owner id = \"  + addedOwnerId] = pm.expect(addedOwnerId).not.null;\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"addedOwnerId\", addedOwnerId);\r",
+							"console.log(\"Added owner id = \"  + addedOwnerId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"Krk\",\r\n  \"city\": \"Krk\",\r\n  \"firstName\": \"Test11\",\r\n  \"lastName\": \"STest11\",\r\n  \"telephone\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/owners",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"owners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OWNER - get all owners",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var ownersAmount = jsonData.length;\r",
+							"\r",
+							"tests[\"Owners amount = \"  + ownersAmount] = pm.expect(ownersAmount).to.greaterThan(0);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"ownersAmount\", ownersAmount);\r",
+							"console.log(\"Owners amount = \"  + ownersAmount);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/owners",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"owners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VISIT - get all visits",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var visitsAmount = jsonData.length;\r",
+							"\r",
+							"tests[\"Visits amount = \"  + visitsAmount] = pm.expect(visitsAmount).to.greaterThan(0);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"visitsAmount\", visitsAmount);\r",
+							"console.log(\"Visits amount = \"  + visitsAmount);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/visits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"visits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VISIT - add visit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var addedVisitId = jsonData.id;\r",
+							"\r",
+							"tests[\"Added visit id = \"  + addedVisitId] = pm.expect(addedVisitId).not.null;\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"addedVisitId\", addedVisitId);\r",
+							"console.log(\"Added visit id = \"  + addedVisitId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"date\": \"2021/03/08\",\r\n  \"description\": \"test desc\",\r\n  \"id\": 0,\r\n  \"pet\":  {\r\n        \"id\": 30,\r\n        \"name\": \"Neal\",\r\n        \"birthDate\": \"2010/01/20\",\r\n        \"type\": {\r\n            \"id\": 2,\r\n            \"name\": \"dog\"\r\n        },\r\n        \"owner\": {\r\n            \"id\": 1,\r\n            \"firstName\": \"George\",\r\n            \"lastName\": \"Franklin\",\r\n            \"address\": \"110 W. Liberty St.\",\r\n            \"city\": \"Madison\",\r\n            \"telephone\": \"6085551023\"\r\n        },\r\n        \"visits\": []\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/visits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"visits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OWNER - get owner by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"OK\"] = responseCode.code === 200;\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var ownerId = jsonData.id;\r",
+							"\r",
+							"tests[\"Owner id = \"  + ownerId] = pm.expect(ownerId).to.eql(11);\r",
+							"\r",
+							"postman.setEnvironmentVariable(\"ownerId\", ownerId);\r",
+							"console.log(\"Owner id = \"  + ownerId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/owners/11",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"owners",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

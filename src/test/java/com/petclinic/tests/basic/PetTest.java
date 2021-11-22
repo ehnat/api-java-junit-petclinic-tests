@@ -1,7 +1,8 @@
-package com.petclinic.tests;
+package com.petclinic.tests.basic;
 
 import com.petclinic.data.databuilders.PetMakers;
 import com.petclinic.services.PetService;
+import com.petclinic.tests.BaseTest;
 import com.petclinic.tests.tags.Smoke;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

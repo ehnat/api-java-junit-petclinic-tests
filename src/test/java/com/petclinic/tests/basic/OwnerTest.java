@@ -1,8 +1,9 @@
-package com.petclinic.tests;
+package com.petclinic.tests.basic;
 
 import com.petclinic.data.databuilders.OwnerMakers;
 import com.petclinic.data.dto.Owner;
 import com.petclinic.services.OwnerService;
+import com.petclinic.tests.BaseTest;
 import com.petclinic.tests.tags.SmokeParameterized;
 import com.petclinic.tests.tags.Smoke;
 import io.qameta.allure.Description;
