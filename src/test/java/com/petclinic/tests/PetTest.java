@@ -2,8 +2,9 @@ package com.petclinic.tests;
 
 import com.petclinic.data.databuilders.PetMakers;
 import com.petclinic.services.PetService;
-import com.petclinic.tests.tags.SmokeTest;
+import com.petclinic.tests.tags.Smoke;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import static com.natpryce.makeiteasy.MakeItEasy.an;
 import static com.natpryce.makeiteasy.MakeItEasy.make;
@@ -16,7 +17,7 @@ public class PetTest extends BaseTest {
 
     private static final int INITIAL_PETS_AMOUNT = 13;
 
-    @SmokeTest
+    @Smoke
     @DisplayName("should return all pets")
     void shouldReturnAllPets() {
         //when
@@ -29,6 +30,7 @@ public class PetTest extends BaseTest {
         );
     }
 
+    @Test
     @DisplayName("should add a new pet")
     void shouldAddPet() {
         //given

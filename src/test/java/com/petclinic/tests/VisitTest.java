@@ -3,9 +3,10 @@ package com.petclinic.tests;
 import com.petclinic.data.databuilders.VisitMakers;
 import com.petclinic.data.dto.Visit;
 import com.petclinic.services.VisitService;
-import com.petclinic.tests.tags.SmokeParameterizedTest;
-import com.petclinic.tests.tags.SmokeTest;
+import com.petclinic.tests.tags.SmokeParameterized;
+import com.petclinic.tests.tags.Smoke;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import static com.natpryce.makeiteasy.MakeItEasy.an;
@@ -20,7 +21,7 @@ public class VisitTest extends BaseTest {
 
     private static final int INITIAL_VISITS_AMOUNT = 4;
 
-    @SmokeTest
+    @Smoke
     @DisplayName("should return all visits")
     void shouldReturnAllVets() {
         //when
@@ -33,7 +34,7 @@ public class VisitTest extends BaseTest {
         );
     }
 
-    @SmokeParameterizedTest
+    @SmokeParameterized
     @MethodSource("com.petclinic.tests.DataProvider#getVisitDetails")
     @DisplayName("should get a visit")
     void shouldGetVisit(int visitId, String description) {
@@ -47,6 +48,7 @@ public class VisitTest extends BaseTest {
         );
     }
 
+    @Test
     @DisplayName("should add a new visit")
     void shouldAddVisit() {
         //given

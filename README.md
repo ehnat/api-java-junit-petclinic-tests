@@ -28,4 +28,7 @@
 * `build/allure-reports` - html files with reports
 * `build/reports/allure-report/allureReport/index.html` - report created after using `allureReport` command
 
-* `./gradlew clean test -Denv=env2 -DtestsCategory=regression --info`
+### Run tests
+
+Tests are run with using `Gradle properties` (property is called with `-P`)
+* `./gradlew clean test -Penv=env2 -PtestsCategory=regression --info`

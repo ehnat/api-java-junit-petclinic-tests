@@ -3,10 +3,11 @@ package com.petclinic.tests;
 import com.petclinic.data.databuilders.OwnerMakers;
 import com.petclinic.data.dto.Owner;
 import com.petclinic.services.OwnerService;
-import com.petclinic.tests.tags.SmokeParameterizedTest;
-import com.petclinic.tests.tags.SmokeTest;
+import com.petclinic.tests.tags.SmokeParameterized;
+import com.petclinic.tests.tags.Smoke;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -23,7 +24,7 @@ class OwnerTest extends BaseTest {
 
     private static final int INITIAL_OWNERS_AMOUNT = 10;
 
-    @SmokeTest
+    @Smoke
     @DisplayName("should return all owners")
     @Description("should return all owners")
     void shouldReturnAllOwners() {
@@ -37,7 +38,7 @@ class OwnerTest extends BaseTest {
         );
     }
 
-    @SmokeParameterizedTest
+    @SmokeParameterized
     @DisplayName("should get an owner:")
     @Description("should get an owner:")
     @ParameterizedTest(name = "id and first name: {arguments}")
@@ -56,6 +57,7 @@ class OwnerTest extends BaseTest {
         );
     }
 
+    @Test
     @DisplayName("should add a new owner")
     @Description("should add a new owner")
     void shouldAddOwner() {

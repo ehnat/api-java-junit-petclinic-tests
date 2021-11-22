@@ -2,7 +2,7 @@ package com.petclinic.tests;
 
 import com.petclinic.data.dto.PetType;
 import com.petclinic.services.PetService;
-import com.petclinic.tests.tags.SmokeParameterizedTest;
+import com.petclinic.tests.tags.SmokeParameterized;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 @DisplayName("PetTypes:")
 public class PetTypeTest extends BaseTest {
 
-    @SmokeParameterizedTest
+    @SmokeParameterized
     @MethodSource("getPetTypesDetails")
     @DisplayName("should get a pet type:")
     @ParameterizedTest(name = "id and name: {arguments}")

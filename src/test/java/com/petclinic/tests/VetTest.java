@@ -2,8 +2,8 @@ package com.petclinic.tests;
 
 import com.petclinic.data.dto.Vet;
 import com.petclinic.services.VetService;
-import com.petclinic.tests.tags.SmokeParameterizedTest;
-import com.petclinic.tests.tags.SmokeTest;
+import com.petclinic.tests.tags.SmokeParameterized;
+import com.petclinic.tests.tags.Smoke;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,7 +17,7 @@ public class VetTest extends BaseTest {
 
     private static final int INITIAL_VETS_AMOUNT = 6;
 
-    @SmokeTest
+    @Smoke
     @DisplayName("should return all vets")
     void shouldReturnAllVets() {
         //when
@@ -30,7 +30,7 @@ public class VetTest extends BaseTest {
         );
     }
 
-    @SmokeParameterizedTest
+    @SmokeParameterized
     @MethodSource("com.petclinic.tests.DataProvider#getVetDetails")
     @ParameterizedTest(name = "id and first name: {arguments}")
     @DisplayName("should get a vet:")
