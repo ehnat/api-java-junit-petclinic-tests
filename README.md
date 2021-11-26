@@ -14,6 +14,10 @@ A. basic, short tests (`basic` package):
 4) pets: get all, add new pet
 5) pet types: get proper one
 
+B. advanced, longer test (`advanced` package):
+
+6) a new visit is scheduled for a new owner and his pet
+
 ### Technical description
 
 - [Java 17](https://openjdk.java.net/projects/jdk/17/)
@@ -110,6 +114,11 @@ With allure part:
 a) example of using Allure annotations:
 
 - used in: `OwnerTest.java`
+
+### Question marks (what is left and good to investigate):
+- how to repeat failed tests in JUnit5
+- why after running `allureReport` command the test report is empty
+
 
 
 
