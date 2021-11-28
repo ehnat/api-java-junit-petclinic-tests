@@ -11,7 +11,7 @@ import com.petclinic.services.PetService;
 import com.petclinic.services.VisitService;
 import com.petclinic.tests.BaseTest;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static com.natpryce.makeiteasy.MakeItEasy.an;
 import static com.natpryce.makeiteasy.MakeItEasy.make;
@@ -22,12 +22,12 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PetVisitTest extends BaseTest {
-    private static final int INITIAL_VISITS_AMOUNT = getAllVisits().size();
 
-    @Test
+    @RepeatedTest(2)
     @DisplayName("new visit should be scheduled for new pet")
     void shouldAddNewVisitForNewPet() {
         //given
+        var initialVisitAmount = getAllVisits().size();
         var newOwner = OwnerService.addOwner(getOwnerRequest());
         var newPet = PetService.addPet(getPetRequest(newOwner));
 
@@ -38,7 +38,7 @@ public class PetVisitTest extends BaseTest {
         assertAll("new added visit:",
                 () -> assertEquals(newVisit.pet().id(), newPet.id(), "has proper petId"),
                 () -> assertEquals(newVisit.pet().owner().id(), newOwner.id(), "has proper ownerId"),
-                () -> assertEquals(getAllVisits().size(), INITIAL_VISITS_AMOUNT + 1, "increased the number of visits")
+                () -> assertEquals(getAllVisits().size(), initialVisitAmount + 1, "increased the number of visits")
         );
     }
 

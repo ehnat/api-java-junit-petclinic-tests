@@ -1,5 +1,3 @@
-## ~ !! WORK IN PROGRESS !! ~
-
 ### Project description
 
 The project contains API tests for a few scenarios for Petclinic application.
@@ -24,7 +22,8 @@ B. advanced, longer test (`advanced` package):
 - [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
 - [RestAssured](https://rest-assured.io/) - for testing REST APIs
 - [JUnit 5](https://junit.org/junit5/docs/current/user-guide/) - support the test creation
-- [Owner](http://owner.aeonbits.org/docs/usage/) - manage property files
+- [Owner](http://owner.aeonbits.org/docs/usage/)
+  , [article](http://www.eliasnogueira.com/easily-manage-properties-files-in-java-with-owner/) - manage property files
 - [Java-Faker](https://github.com/DiUS/java-faker), [Make-It-Easy](https://github.com/npryce/make-it-easy) - prepare
   test data
 - [Allure](https://github.com/allure-framework): [webpage](http://allure.qatools.ru/)
@@ -109,6 +108,10 @@ With allure part:
 * `./gradlew clean test allureServe --info` - run tests and automatically open report on the website
 * `./gradlew clean test allureReport --info` - run tests and create allure report - report is empty (I don't know why)
 
+### Parallel tests
+
+Configuration for running tests parallel is in `junit-platform.properties` (parallelism is turn off)
+
 ### Samples of use in testing other solutions
 
 a) example of using Allure annotations:
@@ -116,6 +119,7 @@ a) example of using Allure annotations:
 - used in: `OwnerTest.java`
 
 ### Question marks (what is left and good to investigate):
+
 - how to repeat failed tests in JUnit5
 - why after running `allureReport` command the test report is empty
 
