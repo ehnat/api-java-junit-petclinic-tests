@@ -14,10 +14,11 @@ public class OwnerService {
 
     public static List<Owner> getAllOwners() {
         return Arrays.asList(given()
-                .spec(RequestSpecs.basicSpecWithTrafficLogging())
+                .spec(RequestSpecs.basicSpecWithBlacklistedHeaders())
                 .when()
                 .get(Paths.OWNERS)
                 .then()
+                .log().all()
                 .statusCode(SC_OK)
                 .extract().as(Owner[].class));
     }

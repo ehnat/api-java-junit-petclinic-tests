@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.config.HttpClientConfig.httpClientConfig;
+import static io.restassured.config.LogConfig.logConfig;
 import static io.restassured.config.RestAssuredConfig.newConfig;
+import static io.restassured.filter.log.LogDetail.ALL;
 import static org.apache.http.params.CoreConnectionPNames.CONNECTION_TIMEOUT;
 import static org.apache.http.params.CoreConnectionPNames.SO_TIMEOUT;
 
@@ -46,6 +48,18 @@ public class RequestSpecs {
                 .addFilters(trafficLoggingEnabled ? LOGGING_FILTERS : new ArrayList<Filter>())
                 .setAccept(accept)
                 .setContentType(ContentType.JSON)
+                .build();
+    }
+
+    public static RequestSpecification basicSpecWithBlacklistedHeaders() {
+        return new RequestSpecBuilder()
+                .setBaseUri(ConfigManager.getEnvConfig().baseUrl())
+                .setConfig(newConfig()
+                        .httpClient(HTTP_CLIENT_CONFIG)
+                        .logConfig(logConfig().blacklistHeader("Accept")))
+                .setAccept(APPLICATION_JSON)
+                .setContentType(ContentType.JSON)
+                .log(ALL)
                 .build();
     }
 

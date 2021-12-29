@@ -118,6 +118,19 @@ a) example of using Allure annotations:
 
 - used in: `OwnerTest.java`
 
+b) mask request header in logs:
+
+- used in: `OwnerTest.java -> shouldReturnAllOwners`
+  [RestAssured-blacklist-header](https://github.com/rest-assured/rest-assured/wiki/Usage#blacklist-headers-from-logging)
+
+c) turning off traffic logging:
+
+- used in: `PetTypeTest.java -> shouldGetPetType`
+
+d) decode Base64 value:
+
+- used in: `EncodeDecodeTest.java`
+
 ### Question marks (what is left and good to investigate):
 
 - how to repeat failed tests in JUnit5

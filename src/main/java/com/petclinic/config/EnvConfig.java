@@ -14,4 +14,7 @@ public interface EnvConfig extends Config {
 
     @Key("base-url")
     String baseUrl();
+
+    @Key("encoded-value")
+    String encodedValue();
 }
